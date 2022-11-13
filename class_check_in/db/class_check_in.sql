@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS carerss;
+DROP TABLE IF EXISTS carers;
 DROP TABLE IF EXISTS emotions;
 DROP TABLE IF EXISTS students;
 DROP TABLE IF EXISTS teachers;
@@ -32,10 +32,7 @@ CREATE TABLE students (
   d_o_b VARCHAR(255)
   gender VARCHAR(255)
   teacher INT NOT NULL REFERENCES teachers(id)
-  teacher INT NOT NULL REFERENCES teachers(id)
+  carer INT NOT NULL REFERENCES carers(id)
 
 );
 
-f_name, l_name, d_o_b, gender, teacher, parent_phone_num,
-publisher VARCHAR(255),
-  author_id INT NOT NULL REFERENCES authors(id)
