@@ -1,8 +1,8 @@
 import pdb
-import datetime
 
+from models.carer import Carer
 
+carer_1= Carer("John", "Miller", "2 Burton Way, EH1112B, Edinburgh", "1234567")
 
-
-pdb.set_trace()
+print(str(carer_1))
 
