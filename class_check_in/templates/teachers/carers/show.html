@@ -1,0 +1,25 @@
+{% extends "basetwo.html" %}
+{% block content %}
+
+
+
+
+<H3>Make emotions count in your classroom</H3>
+<div>
+    <p>	 &#127979;  &#128522;  &#128077; </p> 
+</div>
+<section>
+    <p> Name: {{ carer.f_name }} {{ carer.l_name}} <br>
+        Address: {{carer.details}} <br>
+        Phone number: {{carer.phone_num}}      
+    </p>
+    
+    <a href="/carers/{{ carer.id }}/edit"> <button>Update</button></a>
+    <form action="/carers/{{ carer.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+</section>
+
+
+
+{% endblock %}

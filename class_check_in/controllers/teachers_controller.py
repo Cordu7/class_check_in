@@ -8,7 +8,7 @@ teachers_blueprint = Blueprint("teachers", __name__)
 
 @teachers_blueprint.route("/teachers")
 def teachers():
-    teachers = teacher_repository.select_all() # NEW
+    teachers = teacher_repository.select_all() 
     return render_template("teachers/index.html", teachers = teachers)
 
     
