@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClassCheckIn</title>
+</head>
+<body>
+  <header>
+    <h1>ClassCheckIn page 2</h1>
+    <nav>
+      <ul class="menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/teachers">Teachers</a></li>
+        <li><a href="/students">Student</a></li>
+      </ul>
+    </nav>
+    
+    <aside>
+      <nav>
+        <ul class="menutwo">
+          <li><a href="/teachers">Teacher's Details</a></li>
+          <li><a href="/teachers/carers">Carer's Details</a></li>
+          <li><a href="/teachers/students">Student's Details</a></li>
+          <li><a href="/teachers/emotions">Add emotion</a></li>
+        </ul>
+      </nav>
+    </aside>
+  <div class="container">
+{% block content %}
+
+{% endblock %}
+</div>
+</body>
+<footer>
+    This will be the footer
+</footer>
+</html>
