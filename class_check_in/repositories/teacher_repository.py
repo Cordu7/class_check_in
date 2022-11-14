@@ -9,7 +9,7 @@ def save(teacher):
     results = run_sql(sql, values)
     id = results[0]['id']
     teacher.id = id
-    return teacher
+    #return teacher
 
 
 def select_all():
@@ -18,8 +18,8 @@ def select_all():
     sql = "SELECT * FROM teachers"
     results = run_sql(sql)
 
-    for row in results:
-        teacher = Teacher(row['f_name'], row['l_name'], row['id'] )
+    for result in results:
+        teacher = Teacher(result['f_name'], result['l_name'], result['id'] )
         teachers.append(teacher)
     return teachers
 

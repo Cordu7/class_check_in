@@ -9,8 +9,20 @@
     <p>	 &#127979;  &#128522;  &#128077; </p> 
 </div>
 
-<H2>Teach emotional literacy and check in with every child in your classroom</H2>
+{% for teacher in teachers %}
 
+<section>
+    <p> Name: {{ teacher.f_name }} {{ teacher.l_name}}</p>
+    
+    <a href="/teachers/{{ teacher.id }}/edit"> <button>Update</button></a>
+    <form action="/teachers/{{ teacher.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+</section>
+
+
+{% endfor %}
+<a href="/teachers/new"><button>Add Teacher</button> </a>
 
 
 {% endblock %}

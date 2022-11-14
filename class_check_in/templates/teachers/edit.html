@@ -1,0 +1,25 @@
+{% extends "basetwo.html" %}
+{% block content %}
+
+
+
+<h2>Update Teacher</h2>
+
+<form action="/teachers/{{ teacher.id }}" method="POST">
+    <div>
+        <label for="f_name"> First Name:</label>
+        <input type="text" id="f_name" name="f_name" value="{{ teacher.f_name }}">
+        <label for="l_name">Last Name:</label>
+        <input type="text" id="l_name" name="l_name" value="{{ teacher.l_name }}">
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+
+
+
+
+
+{% endblock %}
+
