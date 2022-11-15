@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS carers_students;
 DROP TABLE IF EXISTS emotions CASCADE;
+DROP TABLE IF EXISTS subemotions CASCADE;
 DROP TABLE IF EXISTS carers CASCADE;
 DROP TABLE IF EXISTS students CASCADE;
 DROP TABLE IF EXISTS teachers;
@@ -27,7 +27,8 @@ CREATE TABLE emotions(
 
 CREATE TABLE subemotions(
     id SERIAL PRIMARY KEY,
-    subemotion_name VARCHAR(255) 
+    subemotion_name VARCHAR(255),
+    emotion_id INT NOT NULL REFERENCES emotions(id) ON DELETE CASCADE 
     );
 
 
