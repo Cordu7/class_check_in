@@ -32,7 +32,6 @@ CREATE TABLE students(
     d_o_b VARCHAR(255),
     gender VARCHAR(255),
     teacher INT NOT NULL REFERENCES teachers(id) ON DELETE CASCADE
-    
     );
 
 CREATE TABLE carers_students (

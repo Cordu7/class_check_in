@@ -11,7 +11,7 @@ class TestStudent(unittest.TestCase):
 
         self.carer_1= Carer("John", "Miller", "2 Burton Way, EH1112B, Edinburgh", "1234567")
         self.teacher = Teacher("Richard", "Smith")
-        self.student_1 = Student("Harris", "Hall", datetime.date(2004,12,10), "male", self.teacher, self.carer_1) 
+        self.student_1 = Student("Harris", "Hall", datetime.date(2004,12,10), "male", self.teacher) 
       
 
     def test_student_has_f_name(self):
@@ -28,9 +28,6 @@ class TestStudent(unittest.TestCase):
 
     def test_student_has_teacher(self):
         self.assertEqual(self.teacher, self.student_1.teacher)
-
-    def test_student_has_parent_phone_num(self):
-        self.assertEqual(self.carer_1, self.student_1.carer)
 
     def test_student_has_id(self):
         self.assertEqual(None, self.student_1.id)
