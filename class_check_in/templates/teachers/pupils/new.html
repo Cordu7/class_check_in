@@ -21,7 +21,8 @@
         <select id="teacher_id" name="teacher_id">
         {% for teacher in teachers %}
         <option value="{{ teacher.id }}">{{ teacher.f_name }} {{ teacher.l_name }}</option>
-        {% endfor %} <br>
+        {% endfor %} 
+        </select>
         
         <div>
             <input type="submit">

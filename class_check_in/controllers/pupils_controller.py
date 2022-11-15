@@ -4,6 +4,7 @@ from models.student import Student
 import repositories.pupil_repository as pupil_repository
 import repositories.teacher_repository as teacher_repository
 import datetime
+import pdb
 
 
 pupils_blueprint = Blueprint("pupils", __name__)
@@ -36,6 +37,7 @@ def create_pupil():
     teacher = teacher_repository.select(teacher_id)   
     new_pupil = Student(f_name, l_name, d_o_b, gender, teacher)
     pupil_repository.save(new_pupil)
+    
     return redirect("/pupils")
 
     # date_borrowed=request.form['date']
@@ -48,7 +50,8 @@ def create_pupil():
 @pupils_blueprint.route("/pupils/<id>")
 def show_pupil(id):
     pupil = pupil_repository.select(id)
-    return render_template('teachers/pupils/show.html', pupil = pupil)
+    teacher=teacher_repository.select(pupil.teacher)
+    return render_template('teachers/pupils/show.html', pupil = pupil, teacher =teacher)
 
 
 
@@ -57,18 +60,24 @@ def show_pupil(id):
 @pupils_blueprint.route("/pupils/<id>/edit")
 def edit_pupil(id):
     pupil = pupil_repository.select(id)
-    return render_template('teachers/pupils/edit.html', pupil = pupil)
+    teachers = teacher_repository.select_all()
+    return render_template('teachers/pupils/edit.html', pupil = pupil, teachers= teachers)
 
 # UPDATE
 # PUT '/books/<id>'
 @pupils_blueprint.route("/pupils/<id>", methods=['POST'])
 def update_pupil(id):
     f_name  = request.form['f_name']
-    l_name = request.form['l_name']
-    details = request.form['details']    
-    phone_num= request.form['phone_num']    
-    pupil = Student(f_name, l_name, details, phone_num, id)
-    pupil_repository.update(pupil)
+    l_name = request.form['l_name']    
+    d_o_b = request.form['d_o_b'] 
+    split_date = d_o_b.split('-')  
+    d_o_b = datetime.date(int(split_date[0]), int(split_date[1]), int(split_date[2])) 
+    gender= request.form['gender']    
+    teacher_id= request.form['teacher_id']
+    teacher = teacher_repository.select(teacher_id)   
+    new_pupil = Student(f_name, l_name, d_o_b, gender, teacher, id)
+    print(new_pupil.d_o_b)
+    pupil_repository.update(new_pupil)
     return redirect('/pupils')
 
 

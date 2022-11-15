@@ -1,0 +1,38 @@
+{% extends "basetwo.html" %}
+{% block content %}
+
+
+
+<h2>Update Student</h2>
+
+<form action="/pupils/{{ pupil.id }}" method="POST">
+    <div>
+        <label for="f_name"> First Name:</label>
+        <input type="text" id="f_name" name="f_name" value="{{ pupil.f_name }}">
+
+        <label for="l_name">Last Name:</label>
+        <input type="text" id="l_name" name="l_name" value="{{ pupil.l_name }}">
+
+        <label for="d_o_b">Date of Birth:</label>
+        <input type="date" name ="d_o_b" id="d_o_b" value = "{{pupil.d_o_b}}"> 
+
+        <label for="gender">Gender:</label>
+        <input type="text" id="gender" name="gender" value = "{{pupil.gender}}">
+
+        <label for="teacher_id">Teacher:</label>
+        <select id="teacher_id" name="teacher_id">
+        {% for teacher in teachers %}
+        <option value="{{ teacher.id }}">{{ teacher.f_name }} {{ teacher.l_name }}</option>
+        {% endfor %} <br>
+        </select>
+        
+    <div>
+        <input type="submit">
+    </div>
+</form>
+
+
+
+
+
+{% endblock %}
