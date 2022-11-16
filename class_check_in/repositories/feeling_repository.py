@@ -9,8 +9,8 @@ import repositories.pupil_repository as student_repository
 
 
 def save(feeling):
-    sql = "INSERT INTO feelings (student_id, subemotion_id, time) VALUES (%s, %s, %s) RETURNING id"
-    values = [feeling.student.id, feeling.subemotion.id, feeling.time]
+    sql = "INSERT INTO feelings (student_id, subemotion_id, time) VALUES (%s, %s, %s) RETURNING *"
+    values = [feeling.student_id.id, feeling.subemotion_id.id, feeling.time]
     results = run_sql(sql, values)
     id = results[0]['id']
     feeling.id = id
