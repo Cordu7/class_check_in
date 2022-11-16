@@ -12,10 +12,12 @@ pupils_blueprint = Blueprint("pupils", __name__)
 @pupils_blueprint.route("/pupils")
 def pupils():
     pupils = pupil_repository.select_all()
-    for pupil in pupils:
-        teacher=teacher_repository.select(pupil.teacher) # NEW
-    return render_template("teachers/pupils/index.html", pupils = pupils, teacher=teacher)
+    teachers=teacher_repository.select_all()       
+    return render_template("teachers/pupils/index.html", pupils = pupils, teachers=teachers)
 
+# for pupil in pupils:
+#         teacher=teacher_repository.select(pupil.teacher)
+#  teachers=teacher_repository.select_all()
 
 
 @pupils_blueprint.route("/pupils/new")

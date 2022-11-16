@@ -3,6 +3,7 @@ from flask import Blueprint
 from models.student import Student
 import repositories.pupil_repository as student_repository
 import repositories.emotion_repository as emotion_repository
+import repositories.subemotion_repository as subemotion_repository
 
 import datetime
 import pdb
@@ -23,25 +24,29 @@ def students():
 def low():
     students = student_repository.select_all()
     emotion_low = emotion_repository.select(1)
-    return render_template("students/low.html", students = students, emotion_low=emotion_low,)
+    subemotions = subemotion_repository.select_by_emotion(emotion_low)  
+    return render_template("students/low.html", students = students, subemotions=subemotions)
 
 @students_blueprint.route("/students/ready")
 def ready():
     students = student_repository.select_all()
-    emotion_ready = emotion_repository.select(2)
-    return render_template("students/ready.html", students = students, emotion_ready=emotion_ready)
+    subemotions = subemotion_repository.select_all()
+    return render_template("students/ready.html", students = students, subemotions=subemotions)
+
 
 @students_blueprint.route("/students/unsettled")
 def unsettled():
     students = student_repository.select_all()
-    emotion_unsettled = emotion_repository.select(3)
-    return render_template("students/unsettled.html", students = students, emotion_unsettled=emotion_unsettled)
+    subemotions = subemotion_repository.select_all()   
+    return render_template("students/unsettled.html", students = students, subemotions=subemotions)
+  
 
 @students_blueprint.route("/students/out-of-control")
 def out_of_control():
     students = student_repository.select_all()
-    emotion_out= emotion_repository.select(4)
-    return render_template("students/out-of-control.html", students = students, emotion_out=emotion_out)
+    subemotions = subemotion_repository.select_all()   
+    return render_template("students/out-of-control.html", students = students, subemotions= subemotions)
+
 
 
 

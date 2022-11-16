@@ -3,15 +3,37 @@
 
 
 
-<select id="student_id" name="student_id">
-    {% for student in students %}
-    <option value="{{ students.id }}">{{ student.f_name }} {{ student.l_name }}</option>
-    {% endfor %} 
-    </select>
 
 
+    <h2>Add a Feeling</h2>
 
-
-
+    <form action="/students" method="POST">
+        <div>
+            <label for="student">Student:</label>
+            <select name="student_id" id="student">
+                {% for student in students %}
+                <option value="{{ student.id }}">
+                    {{ student.f_name }} {{ student.l_name }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <div>
+                <label for="subemotion">Emotion:</label>
+                <select name="subemotion_id" id="subemotion">
+                    {% for subemotion in subemotions %}
+                    <option value="{{ subemotion.id }}">
+                         {{subemotion.subemotion_name}}
+                     </option>
+                    {% endfor %} 
+                </select>
+            </div>
+            <div>
+                <input type="submit">
+            </div>
+        </form>
+      
+        
 
 {% endblock %}

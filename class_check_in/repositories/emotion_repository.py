@@ -19,7 +19,7 @@ def select_all():
     results = run_sql(sql)
 
     for result in results:
-        emotion = Emotion(result['emotion_name'] )
+        emotion = Emotion(result['emotion_name'], result['id'] )
         emotions .append(emotion)
     return emotions 
 
@@ -39,18 +39,3 @@ def select(id):
     return emotion
 
 
-# def delete_all():s
-#     sql = "DELETE  FROM emotions "
-#     run_sql(sql)
-
-
-# def delete(id):
-#     sql = "DELETE  FROM emotions  WHERE id = %s"
-#     values = [id]
-#     run_sql(sql, values)
-
-
-# def update(emotion):
-#     sql = "UPDATE emotions  SET (emotion_category) = (%s) WHERE id = %s"
-#     values = [emotion.emotion_category, emotion.id]
-#     run_sql(sql, values)

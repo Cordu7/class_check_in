@@ -11,14 +11,18 @@
 
 {% for pupil in pupils %}
 <section>
-    <p> Name: {{ pupil.f_name }} {{ pupil.l_name}} <br>
-        Date of Birth: {{pupil.d_o_b}} <br> 
-        Gender: {{pupil.gender}} <br>
+    <p> Name: {{ pupil.f_name }} {{ pupil.l_name}} </p>
+        <p>Date of Birth: {{pupil.d_o_b}} </p> 
+        <p>Gender: {{pupil.gender}} </p>
+        
+        {% for teacher in teachers %}
 
-        Teacher: {{teacher.f_name}} {{teacher.l_name}} 
+            {% if pupil.teacher == teacher.id %}
+        <p>Teacher: {{ teacher.f_name}} {{ teacher.l_name}}</p>
+        {% endif %}
+        {% endfor %}  
 
-       
-    </p>
+
     
     <a href="/pupils/{{ pupil.id }}/edit"> <button>Update</button></a>
     <a href="/pupils/{{ pupil.id }}"> <button>View Pupil</button></a>
