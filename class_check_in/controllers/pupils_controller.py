@@ -3,6 +3,7 @@ from flask import Blueprint
 from models.student import Student
 import repositories.pupil_repository as pupil_repository
 import repositories.teacher_repository as teacher_repository
+import repositories.feeling_repository as feeling_repository
 import datetime
 import pdb
 
@@ -29,17 +30,11 @@ def new_pupil():
 # CREATE
 @pupils_blueprint.route("/pupils",  methods=['POST'])
 def create_pupil():
-    f_name  = request.form['f_name']
-    l_name = request.form['l_name']    
-    d_o_b = request.form['d_o_b'] 
-    split_date = d_o_b.split('-')  
-    d_o_b = datetime.date(int(split_date[0]), int(split_date[1]), int(split_date[2])) 
-    gender= request.form['gender']    
+    name  = request.form['name']      
     teacher_id= request.form['teacher_id']
     teacher = teacher_repository.select(teacher_id)   
-    new_pupil = Student(f_name, l_name, d_o_b, gender, teacher)
+    new_pupil = Student(name, teacher)
     pupil_repository.save(new_pupil)
-    
     return redirect("/pupils")
 
     # date_borrowed=request.form['date']
@@ -55,6 +50,15 @@ def show_pupil(id):
     teacher=teacher_repository.select(pupil.teacher)
     return render_template('teachers/pupils/show.html', pupil = pupil, teacher =teacher)
 
+# SHOW one students feelings
+# GET '/books/<id>'
+@pupils_blueprint.route("/pupils/<id>/feelings")
+def one_student_feeling(id):
+    student = pupil_repository.select(id)
+    feelings = feeling_repository.select_by_student(student)
+    # pdb.set_trace()
+
+    return render_template("teachers/feelings/index.html", student = student, feelings=feelings)
 
 
 # EDIT
@@ -69,16 +73,10 @@ def edit_pupil(id):
 # PUT '/books/<id>'
 @pupils_blueprint.route("/pupils/<id>", methods=['POST'])
 def update_pupil(id):
-    f_name  = request.form['f_name']
-    l_name = request.form['l_name']    
-    d_o_b = request.form['d_o_b'] 
-    split_date = d_o_b.split('-')  
-    d_o_b = datetime.date(int(split_date[0]), int(split_date[1]), int(split_date[2])) 
-    gender= request.form['gender']    
+    name  = request.form['name']  
     teacher_id= request.form['teacher_id']
     teacher = teacher_repository.select(teacher_id)   
-    new_pupil = Student(f_name, l_name, d_o_b, gender, teacher, id)
-    print(new_pupil.d_o_b)
+    new_pupil = Student(name, teacher, id)
     pupil_repository.update(new_pupil)
     return redirect('/pupils')
 

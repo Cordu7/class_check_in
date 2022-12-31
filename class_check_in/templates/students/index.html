@@ -1,19 +1,24 @@
 {% extends "basethree.html" %}
 {% block content %}
 
-<div>
-    <div>
+<div class="grid-container">
+    <div class="grid-item">
+        <p>&#128550;</p>
         <a href="/students/low"> <button>{{emotion_low.emotion_name }}</button></a>
     </div>
-    <div>
+    <div class="grid-item">
+        <p> &#128522;</p>
         <a href="/students/ready"> <button>{{emotion_ready.emotion_name }}</button></a>
     </div>
 
-    <div>
+    <div class="grid-item">
+        <p>&#129313;</p>
         <a href="/students/unsettled"> <button>{{emotion_unsettled.emotion_name }}</button></a>
     </div>
 
-    <div>
+    <div class="grid-item">
+        
+        <p>&#129327;</p>
         <a href="/students/out-of-control"> <button>{{emotion_out.emotion_name }}</button></a>
     </div>
 </div>

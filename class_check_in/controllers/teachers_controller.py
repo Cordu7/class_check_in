@@ -24,9 +24,9 @@ def new_teacher():
 # CREATE
 @teachers_blueprint.route("/teachers",  methods=['POST'])
 def create_teacher():
-    f_name    = request.form['f_name']
-    l_name = request.form['l_name']    
-    new_teacher = Teacher(f_name, l_name)
+    title   = request.form['title']
+    name = request.form['name']    
+    new_teacher = Teacher(title, name)
     teacher_repository.save(new_teacher)
     return redirect("/teachers")
 
@@ -50,9 +50,9 @@ def edit_teacher(id):
 @teachers_blueprint.route("/teachers/<id>", methods=['POST'])
 def update_teacher(id):
     #teacher= teacher_repository.select(id)
-    f_name  = request.form['f_name']
-    l_name = request.form['l_name']
-    teacher = Teacher(f_name, l_name, id)
+    title  = request.form['title']
+    name = request.form['name']
+    teacher = Teacher(title, name, id)
     teacher_repository.update(teacher)
     return redirect('/teachers')
 

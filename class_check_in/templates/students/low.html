@@ -11,7 +11,7 @@
             <select name="student_id" id="student_id">
                 {% for student in students %}
                 <option value="{{ student.id }}">
-                    {{ student.f_name }} {{ student.l_name }}
+                    {{ student.name }} 
                 </option>
                 {% endfor %}
             </select>

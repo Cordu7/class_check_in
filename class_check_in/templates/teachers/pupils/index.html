@@ -11,24 +11,23 @@
 
 {% for pupil in pupils %}
 <section>
-    <p> Name: {{ pupil.f_name }} {{ pupil.l_name}} </p>
-        <p>Date of Birth: {{pupil.d_o_b}} </p> 
-        <p>Gender: {{pupil.gender}} </p>
+    <p> Name: {{ pupil.name }}</p>
         
         {% for teacher in teachers %}
 
             {% if pupil.teacher == teacher.id %}
-        <p>Teacher: {{ teacher.f_name}} {{ teacher.l_name}}</p>
+        <p>Teacher: {{ teacher.title}} {{ teacher.name}}</p>
         {% endif %}
         {% endfor %}  
 
 
     
-    <a href="/pupils/{{ pupil.id }}/edit"> <button>Update</button></a>
+    <!-- <a href="/pupils/{{ pupil.id }}/edit"> <button>Update</button></a> -->
     <a href="/pupils/{{ pupil.id }}"> <button>View Pupil</button></a>
-    <form action="/pupils/{{ pupil.id }}/delete" method="POST">
+    <!-- <form action="/pupils/{{ pupil.id }}/delete" method="POST">
         <input type="submit" value="Delete">
-    </form>
+    </form> -->
+    <a href="/pupils/{{ pupil.id }}/feelings"> <button>View student's feelings</button></a>
 </section>
 {% endfor %}
 

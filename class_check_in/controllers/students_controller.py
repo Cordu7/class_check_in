@@ -57,11 +57,12 @@ def out_of_control():
 # CREATE
 @students_blueprint.route("/students", methods=['POST'])
 def create_feeling():
-    student = request.form['student_id']
-    student_id= student_repository.select(student) 
+    student_id = request.form['student_id']
+    student= student_repository.select(student_id) 
     subemotion_id= request.form['subemotion_id']
-    subemotion_id= subemotion_repository.select(subemotion_id)
-    new_feeling=Feeling(student_id, subemotion_id, id=None)
+    subemotion= subemotion_repository.select(subemotion_id)
+    new_feeling=Feeling(student, subemotion,time=None, id=None)
+
     feeling_repository.save(new_feeling)
     return redirect("/students")
 

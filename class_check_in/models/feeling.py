@@ -1,8 +1,8 @@
 import datetime
 
 class Feeling:
-       def __init__(self, student_id, subemotion_id, id= None):
-        self.student_id = student_id
-        self.subemotion_id = subemotion_id
-        self.time= datetime.datetime.now()
+       def __init__(self, student, subemotion, posting_date=None,  id= None):
+        self.student = student
+        self.subemotion = subemotion
+        self.posting_date = posting_date
         self.id=id

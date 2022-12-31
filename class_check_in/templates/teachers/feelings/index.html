@@ -1,0 +1,29 @@
+{% extends "basetwo.html" %}
+{% block content %}
+
+<h2>Feelings</h2>
+
+
+
+
+    
+   
+
+    <table>
+        <tr>
+            <th>Student's name</th>
+            <th>Feeling</th>
+            <th>Date</th>
+        </tr>
+        {% for feeling in feelings %}
+        <tr>
+            <td>{{feeling.student.name }}</td>
+            <td>{{feeling.subemotion.subemotion_name}}</td>  
+            <td>{{feeling.posting_date.strftime('%d-%m-%Y' )}}</td>  
+        </tr>
+        {% endfor %}
+    </table>
+
+
+
+{% endblock %}
