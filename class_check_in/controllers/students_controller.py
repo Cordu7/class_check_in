@@ -61,7 +61,7 @@ def create_feeling():
     student= student_repository.select(student_id) 
     subemotion_id= request.form['subemotion_id']
     subemotion= subemotion_repository.select(subemotion_id)
-    new_feeling=Feeling(student, subemotion,time=None, id=None)
+    new_feeling=Feeling(student, subemotion, posting_date=None, id=None)
 
     feeling_repository.save(new_feeling)
     return redirect("/students")
