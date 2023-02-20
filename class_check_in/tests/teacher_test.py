@@ -17,4 +17,9 @@ class TestTeacher(unittest.TestCase):
     def test_teacher_has_id(self):
         self.assertEqual(None, self.teacher.id)
 
-        
+
+
+#Test for teacher class
+#arrange: initiate a sample teacher object 
+#act: test i
+#assert 

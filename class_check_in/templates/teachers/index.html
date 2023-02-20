@@ -5,14 +5,14 @@
 
 
 <H2>Make Emotions count in your classroom</H2>
-<div>
+<div class="smileys">
     <p>	 &#127979;  &#128522;  &#128077; </p> 
 </div>
 
 {% for teacher in teachers %}
 
 <section>
-    <p> Name: {{ teacher.f_name }} {{ teacher.l_name}}</p>
+    <p> Title: {{ teacher.title}} {{ teacher.name}}</p>
     
     <a href="/teachers/{{ teacher.id }}/edit"> <button>Update</button></a>
     <form action="/teachers/{{ teacher.id }}/delete" method="POST">

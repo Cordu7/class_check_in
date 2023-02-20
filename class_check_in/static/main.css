@@ -1,0 +1,100 @@
+/* class in base 2 menu and container in base 1 */
+@media (min-width: 720px){
+header{
+    margin: 0;
+    padding-top: 0;
+    background-color: rgb(126, 46, 201);
+    margin-top: 0%;
+}
+h1{
+    margin:0;
+    color: white;
+    font-size: 2 rem;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+
+.menu {
+    background-color: rgb(161, 143, 177);
+    list-style: none;
+    display: flex;
+    flex-direction:row;
+   
+    justify-content: space-around;
+}
+.menu> li>a{
+    color: black;
+    font-size: 2rem;
+}
+
+body {
+    margin-top: 0%;
+    justify-content: center;
+    margin: 0; /* NEW */
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  .container {
+    margin: 0;
+  }
+}
+.container>h2{
+    justify-content: center;
+}
+footer{
+    margin: 0;
+    background-color: rgb(161, 143, 177);
+
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.grid-item >p {
+    
+
+}
+/*   
+  .navLink li {
+      margin: 20px;
+  }
+  
+   a {
+    color: black;
+  }
+  
+  .navLink {
+      display: inline;
+  }
+  
+  
+  .order-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .order {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    background-color: white;
+    padding: 10px;
+    margin:20px;
+  }
+  
+  .order p, i{
+    color:black;
+    list-style: none;
+    margin:3px;
+  }
+  
+  h2 {
+    color: black;
+  }
+  
+  h3, h4, h5 {
+    margin: 5px;
+    color:blue;
+  }
+   */ */

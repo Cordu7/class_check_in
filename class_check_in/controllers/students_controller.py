@@ -4,6 +4,8 @@ from models.student import Student
 import repositories.pupil_repository as student_repository
 import repositories.emotion_repository as emotion_repository
 import repositories.subemotion_repository as subemotion_repository
+import repositories.feeling_repository as feeling_repository
+from models.feeling import Feeling
 
 import datetime
 import pdb
@@ -30,91 +32,37 @@ def low():
 @students_blueprint.route("/students/ready")
 def ready():
     students = student_repository.select_all()
-    subemotions = subemotion_repository.select_all()
+    emotion_ready = emotion_repository.select(2)
+    subemotions = subemotion_repository.select_by_emotion(emotion_ready) 
     return render_template("students/ready.html", students = students, subemotions=subemotions)
 
 
 @students_blueprint.route("/students/unsettled")
 def unsettled():
     students = student_repository.select_all()
-    subemotions = subemotion_repository.select_all()   
+    emotion_unsettled = emotion_repository.select(3)
+    subemotions = subemotion_repository.select_by_emotion(emotion_unsettled)  
     return render_template("students/unsettled.html", students = students, subemotions=subemotions)
   
 
 @students_blueprint.route("/students/out-of-control")
 def out_of_control():
     students = student_repository.select_all()
-    subemotions = subemotion_repository.select_all()   
+    emotion_out = emotion_repository.select(4)
+    subemotions = subemotion_repository.select_by_emotion(emotion_out)  
     return render_template("students/out-of-control.html", students = students, subemotions= subemotions)
 
 
+ 
+# CREATE
+@students_blueprint.route("/students", methods=['POST'])
+def create_feeling():
+    student_id = request.form['student_id']
+    student= student_repository.select(student_id) 
+    subemotion_id= request.form['subemotion_id']
+    subemotion= subemotion_repository.select(subemotion_id)
+    new_feeling=Feeling(student, subemotion,time=None, id=None)
 
+    feeling_repository.save(new_feeling)
+    return redirect("/students")
 
-# @pupils_blueprint.route("/pupils/new")
-# def new_pupil():
-#     teachers = teacher_repository.select_all() 
-#     return render_template("teachers/pupils/new.html", teachers=teachers)
-
-# # f_name, l_name, d_o_b, gender, teacher,
-# # CREATE
-# @pupils_blueprint.route("/pupils",  methods=['POST'])
-# def create_pupil():
-#     f_name  = request.form['f_name']
-#     l_name = request.form['l_name']    
-#     d_o_b = request.form['d_o_b'] 
-#     split_date = d_o_b.split('-')  
-#     d_o_b = datetime.date(int(split_date[0]), int(split_date[1]), int(split_date[2])) 
-#     gender= request.form['gender']    
-#     teacher_id= request.form['teacher_id']
-#     teacher = teacher_repository.select(teacher_id)   
-#     new_pupil = Student(f_name, l_name, d_o_b, gender, teacher)
-#     pupil_repository.save(new_pupil)
-    
-#     return redirect("/pupils")
-
-#     # date_borrowed=request.form['date']
-#     # split_date = date_borrowed.split('-')
-#     # date_borrowed = datetime.date(int(split_date[0]), int(split_date[1]), int(split_date[2]))
-
-
-# # SHOW
-# # GET '/books/<id>'
-# @pupils_blueprint.route("/pupils/<id>")
-# def show_pupil(id):
-#     pupil = pupil_repository.select(id)
-#     teacher=teacher_repository.select(pupil.teacher)
-#     return render_template('teachers/pupils/show.html', pupil = pupil, teacher =teacher)
-
-
-
-# # EDIT
-# # GET '/books/<id>/edit'
-# @pupils_blueprint.route("/pupils/<id>/edit")
-# def edit_pupil(id):
-#     pupil = pupil_repository.select(id)
-#     teachers = teacher_repository.select_all()
-#     return render_template('teachers/pupils/edit.html', pupil = pupil, teachers= teachers)
-
-# # UPDATE
-# # PUT '/books/<id>'
-# @pupils_blueprint.route("/pupils/<id>", methods=['POST'])
-# def update_pupil(id):
-#     f_name  = request.form['f_name']
-#     l_name = request.form['l_name']    
-#     d_o_b = request.form['d_o_b'] 
-#     split_date = d_o_b.split('-')  
-#     d_o_b = datetime.date(int(split_date[0]), int(split_date[1]), int(split_date[2])) 
-#     gender= request.form['gender']    
-#     teacher_id= request.form['teacher_id']
-#     teacher = teacher_repository.select(teacher_id)   
-#     new_pupil = Student(f_name, l_name, d_o_b, gender, teacher, id)
-#     print(new_pupil.d_o_b)
-#     pupil_repository.update(new_pupil)
-#     return redirect('/pupils')
-
-
-# # DELETE '/books/<id>'
-# @pupils_blueprint.route("/pupils/<id>/delete", methods=['POST'])
-# def delete_pupil(id):
-#     pupil_repository.delete(id)
-#     return redirect('/pupils')

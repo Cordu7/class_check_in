@@ -7,10 +7,10 @@
 
 <form action="/teachers/{{ teacher.id }}" method="POST">
     <div>
-        <label for="f_name"> First Name:</label>
-        <input type="text" id="f_name" name="f_name" value="{{ teacher.f_name }}">
-        <label for="l_name">Last Name:</label>
-        <input type="text" id="l_name" name="l_name" value="{{ teacher.l_name }}">
+        <label for="title"> Title:</label>
+        <input type="text" id="title" name="title" value="{{ teacher.title }}">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ teacher.name }}">
     </div>
     <div>
         <input type="submit">

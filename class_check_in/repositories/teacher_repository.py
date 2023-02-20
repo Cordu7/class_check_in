@@ -1,11 +1,12 @@
 from db.run_sql import run_sql
+import pdb
 
 from models.teacher import Teacher
 
 
 def save(teacher):
-    sql = "INSERT INTO teachers (f_name, l_name) VALUES (%s, %s) RETURNING *"
-    values = [teacher.f_name, teacher.l_name]
+    sql = "INSERT INTO teachers (title, name) VALUES (%s, %s) RETURNING *"
+    values = [teacher.title, teacher.name]
     results = run_sql(sql, values)
     id = results[0]['id']
     teacher.id = id
@@ -19,7 +20,7 @@ def select_all():
     results = run_sql(sql)
 
     for result in results:
-        teacher = Teacher(result['f_name'], result['l_name'], result['id'] )
+        teacher = Teacher(result['title'], result['name'], result['id'] )
         teachers.append(teacher)
     return teachers
 
@@ -35,7 +36,7 @@ def select(id):
     # if len(results) > 0 
     if results:
         result = results[0]
-        teacher = Teacher(result['f_name'], result['l_name'], result['id'] )
+        teacher = Teacher(result['title'], result['name'], result['id'] )
     return teacher
 
 
@@ -51,8 +52,8 @@ def delete(id):
 
 
 def update(teacher):
-    sql = "UPDATE teachers SET (f_name, l_name) = (%s, %s) WHERE id = %s"
-    values = [teacher.f_name, teacher.l_name, teacher.id]
+    sql = "UPDATE teachers SET (title, name) = (%s, %s) WHERE id = %s"
+    values = [teacher.title, teacher.name, teacher.id]
     run_sql(sql, values)
 
 

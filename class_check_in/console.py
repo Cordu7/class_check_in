@@ -1,8 +1,8 @@
 import pdb
 import datetime
-from models.carer import Carer
-from models.teacher import Teacher
-from models.student import Student
+
+# from models.teacher import Teacher
+# from models.student import Student
 from models.emotion import Emotion
 from models.subemotion import Subemotion
 
@@ -11,13 +11,16 @@ from models.subemotion import Subemotion
 import repositories.teacher_repository as teacher_repository
 import repositories.emotion_repository as emotion_repository
 import repositories.subemotion_repository as subemotion_repository
+# import repositories.feeling_repository as feeling_repository
 
-#carer_1= Carer("John", "Miller", "2 Burton Way, EH1112B, Edinburgh", "1234567")
+# feeling_repository.select_student_emotion()
 
-teacher = Teacher("Richard", "Smith")
-teacher_repository.save(teacher)
+# #carer_1= Carer("John", "Miller", "2 Burton Way, EH1112B, Edinburgh", "1234567")
 
-# student_1 = Student("Harris", "Hall", datetime.date(2004,12,10), "male", teacher, carer_1) 
+# teacher = Teacher("Richard", "Smith")
+# teacher_repository.save(teacher)
+
+# # student_1 = Student("Harris", "Hall", datetime.date(2004,12,10), "male", teacher, carer_1) 
 emotion_1= Emotion("Low", 1)
 emotion_2= Emotion("Ready to learn", 2)
 emotion_3= Emotion("Unsettled", 3)
@@ -93,6 +96,10 @@ subemotion_repository.save(subemotion_angry)
 subemotion_repository.save(subemotion_overexcited)
 subemotion_repository.save(subemotion_ecstatic)
 subemotion_repository.save(subemotion_tormented)
+
+
+
+
 
 
 

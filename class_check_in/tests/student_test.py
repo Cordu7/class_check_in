@@ -9,9 +9,9 @@ class TestStudent(unittest.TestCase):
     
     def setUp(self):
 
-        self.carer_1= Carer("John", "Miller", "2 Burton Way, EH1112B, Edinburgh", "1234567")
+        
         self.teacher = Teacher("Richard", "Smith")
-        self.student_1 = Student("Harris", "Hall", datetime.date(2004,12,10), "male", self.teacher) 
+        self.student_1 = Student("Harris", "Hall",  "male", self.teacher) 
       
 
     def test_student_has_f_name(self):
@@ -20,8 +20,6 @@ class TestStudent(unittest.TestCase):
     def test_student_has_l_name(self):
         self.assertEqual("Hall", self.student_1.l_name)
 
-    def test_student_has_dob(self):
-        self.assertEqual(("2004-12-10"), str(self.student_1.d_0_b))
 
     def test_student_has_gender(self):
         self.assertEqual("male", self.student_1.gender)
