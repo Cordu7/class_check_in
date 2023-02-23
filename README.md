@@ -4,7 +4,7 @@ Individual Project: class_check_in
 
 ### Student's Well_being Tracker App
 
-A primary school wants to build an app for teachers to support their students well-being. One teacher has a many students of students. (One to many mapping)
+A primary school wants to build an app for teachers to support their students well-being. One teacher has a many students. (One to many mapping)
 
 #### MVP
 
@@ -12,10 +12,9 @@ A primary school wants to build an app for teachers to support their students we
 The well-being is self-assessed since the school wants to teach the students to be reflective and to self-regulate.
 
 - Be able to assign students to teachers
-
 - each students can choose the emotions they are feeling at two points during the day and the app records this
-
 - A teacher can view a students feelings 
+
 
 
 ## Installation
