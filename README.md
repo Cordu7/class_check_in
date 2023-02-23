@@ -18,14 +18,12 @@ The well-being is self-assessed since the school wants to teach the students to 
 
 
 ## Installation
-Python 3 and postgreSQL are required to install the app.
-
-To install the dependencies, build the database structure and launch with starter data, run the following commands in your CLI:
-
-pip3 install -r requirements.txt
+Python 3, Falsk and postgreSQL are required to install the app.
+```
 createdb class_check_in
 psql -d class_check_in -f db/class_check_in.sql
 python3 console.py
+```
 
 To run the app:
 
