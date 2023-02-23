@@ -1,7 +1,6 @@
 import unittest
 from models.teacher import Teacher
 
-
 class TestTeacher(unittest.TestCase):
     
     def setUp(self):
@@ -16,10 +15,3 @@ class TestTeacher(unittest.TestCase):
 
     def test_teacher_has_id(self):
         self.assertEqual(None, self.teacher.id)
-
-
-
-#Test for teacher class
-#arrange: initiate a sample teacher object 
-#act: test 
-#assert 

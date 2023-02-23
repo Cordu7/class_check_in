@@ -6,8 +6,6 @@ import repositories.emotion_repository as emotion_repository
 import repositories.subemotion_repository as subemotion_repository
 import repositories.feeling_repository as feeling_repository
 from models.feeling import Feeling
-
-import datetime
 import pdb
 
 
@@ -52,9 +50,6 @@ def out_of_control():
     subemotions = subemotion_repository.select_by_emotion(emotion_out)  
     return render_template("students/out-of-control.html", students = students, subemotions= subemotions)
 
-
- 
-# CREATE
 @students_blueprint.route("/students", methods=['POST'])
 def create_feeling():
     student_id = request.form['student_id']
@@ -62,7 +57,6 @@ def create_feeling():
     subemotion_id= request.form['subemotion_id']
     subemotion= subemotion_repository.select(subemotion_id)
     new_feeling=Feeling(student, subemotion, posting_date=None, id=None)
-
     feeling_repository.save(new_feeling)
     return redirect("/students")
 

@@ -5,7 +5,6 @@ from models.teacher import Teacher
 from models.subemotion import Subemotion
 from models.emotion import Emotion
 
-
 class TestFeeling(unittest.TestCase):
     
     def setUp(self):
@@ -15,7 +14,6 @@ class TestFeeling(unittest.TestCase):
         self.student_1 = Student("Harris", self.teacher) 
         self.feeling = Feeling(self.student_1, self.emotion_1)
         
-
     def test_feeling_has_student(self):
         self.assertEqual(self.student_1, self.feeling.student)
 

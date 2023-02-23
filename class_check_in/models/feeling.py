@@ -1,4 +1,3 @@
-import datetime
 
 class Feeling:
        def __init__(self, student, subemotion, posting_date=None,  id= None):

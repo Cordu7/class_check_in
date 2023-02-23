@@ -1,8 +1,6 @@
 import unittest
 from models.emotion import Emotion
 
-
-
 class TestEmotion(unittest.TestCase):
     
     def setUp(self):

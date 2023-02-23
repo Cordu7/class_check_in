@@ -2,8 +2,6 @@ import unittest
 from models.subemotion import Subemotion
 from models.emotion import Emotion
 
-
-
 class TestEmotion(unittest.TestCase):
     
     def setUp(self):

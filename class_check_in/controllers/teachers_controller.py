@@ -11,14 +11,8 @@ def teachers():
     teachers = teacher_repository.select_all() 
     return render_template("teachers/index.html", teachers = teachers)
 
-    
-
-# NEW
-# GET '/books/new'
 @teachers_blueprint.route("/teachers/new")
 def new_teacher():
-    #teachers = teacher_repository.select_all()
-    #return render_template("teachers/new.html", teachers = teachers)
     return render_template("teachers/new.html")
 
 # CREATE
@@ -30,34 +24,19 @@ def create_teacher():
     teacher_repository.save(new_teacher)
     return redirect("/teachers")
 
-
-# SHOW
-# GET '/books/<id>'
-# @teachers_blueprint.route("/teachers/<id>", methods=['GET'])
-# def show_teacher(id):
-#     teacher = teacher_repository.select(id)
-#     return render_template('teachers/teachers/show.html', teacher = teacher)
-
-# EDIT
-# GET '/books/<id>/edit'
 @teachers_blueprint.route("/teachers/<id>/edit")
 def edit_teacher(id):
     teacher = teacher_repository.select(id)
     return render_template('teachers/edit.html', teacher = teacher)
 
-# UPDATE
-# PUT '/books/<id>'
 @teachers_blueprint.route("/teachers/<id>", methods=['POST'])
 def update_teacher(id):
-    #teacher= teacher_repository.select(id)
     title  = request.form['title']
     name = request.form['name']
     teacher = Teacher(title, name, id)
     teacher_repository.update(teacher)
     return redirect('/teachers')
 
-# DELETE
-# DELETE '/books/<id>'
 @teachers_blueprint.route("/teachers/<id>/delete", methods=['POST'])
 def delete_teacher(id):
     teacher_repository.delete(id)
