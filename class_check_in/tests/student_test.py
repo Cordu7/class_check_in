@@ -13,7 +13,7 @@ class TestStudent(unittest.TestCase):
         self.student_1 = Student("Harris", self.teacher) 
       
 
-    def test_student_has_naem(self):
+    def test_student_has_name(self):
         self.assertEqual("Harris", self.student_1.name)
 
 
