@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="static/main.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}"> 
     <title>ClassCheckIn</title>
 </head>
 <body>
+  <div id="wrapper">
+    <div id="content">
   <header>
     <h1>ClassCheckIn</h1>
-    <nav>
-      <ul class="menu">
-        <li><a href="/">Home</a></li>
-        <li><a href="{{ url_for('teachers.teachers') }}">Teachers</a></li>
-      </ul>
-    </nav>
+
   </header>
-  <aside>
-    <nav>
-      <ul class="menutwo">
-        <li><a href="/pupils">Pupil's Details</a></li>
-        <li><a href="/emotions">View emotion</a></li>
-      </ul>
-    </nav>
-  </aside>
-<div class="container">
+  <nav>
+    <ul class="menu">
+      <li><a href="/">Home</a></li>
+      <li><a href=/teachers>Teachers</a></li>
+      <li><a href=/students>Students</a></li>
+    </ul>
+  </nav>
+  <aside> 
+
+    <nav> 
+    
+    <ul class="menutwo"> 
+    
+    <li><a href="/pupils">Pupil's Details</a></li> 
+    
+    </ul> 
+    </nav> 
+    </aside> 
   <div class="container">
     {% block content %}
 
     {% endblock %}
   </div>
+</div>
+<div id="footer" class = "footer">
+  Code Clan Project Cordula Gunst ClassCheckIn
+</div>
+</div>
 </body>
-<footer>
-    Code Clan Project Cordula Gunst ClassCheckIn
-</footer>
 </html>

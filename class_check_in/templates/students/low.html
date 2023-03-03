@@ -1,10 +1,9 @@
-{% extends "basethree.html" %}
+{% extends "base.html" %}
 {% block content %}
 
-
-
-    <h2>Add a Feeling</h2>
-
+<div class = "smiley-header">
+    <h2>Add your Feeling  &#128550;</h2>
+</div>
     <form action="/students" method="POST">
         <div>
             <label for="student_id">Student:</label>
@@ -24,11 +23,13 @@
                          {{subemotion.subemotion_name}}
                      </option>
                     {% endfor %} 
-                </select>
-            </div>
+            </select>
+        </div>
+            
             <div>
                 <input type="submit">
             </div>
-        </form>
+    </form>
+        
 
 {% endblock %}      

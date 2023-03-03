@@ -1,28 +1,20 @@
 {% extends "basetwo.html" %}
+
 {% block content %}
-
-
-
-
 <H2>Make Emotions count in your classroom</H2>
 <div class="smileys">
     <p>	 &#127979;  &#128522;  &#128077; </p> 
 </div>
-
+<a href="/teachers/new"><button>Add Teacher</button> </a>
 {% for teacher in teachers %}
-
 <section>
     <p> Title: {{ teacher.title}} {{ teacher.name}}</p>
-    
     <a href="/teachers/{{ teacher.id }}/edit"> <button>Update</button></a>
     <form action="/teachers/{{ teacher.id }}/delete" method="POST">
         <input type="submit" value="Delete">
     </form>
 </section>
-
-
 {% endfor %}
-<a href="/teachers/new"><button>Add Teacher</button> </a>
 
 
 {% endblock %}
